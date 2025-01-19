@@ -24,14 +24,14 @@ export default function Home() {
   };
 
   return (
-    <main className="items-center justify-center min-h-screen bg-indigo-950">
+    <main className="items-center justify-center min-h-screen bg-indigo-950 relative">
       {/* Navbar */}
-      <div className="p-10">
+      <div className="p-10 z-20 relative">
         <Navbar onSectionChange={handleSectionChange} />
       </div>
 
-      <div className="relative flex justify-center items-center mt-32">
-        <div className="relative flex justify-center flex-col text-center w-full">
+      <div className="relative flex justify-center items-center mt-32 z-10 h-screen">
+        <div className="relative flex justify-center flex-col text-center w-full z-10">
           <img
             src="images/vader.png"
             alt="Darth Vader"
@@ -47,20 +47,25 @@ export default function Home() {
       </div>
 
       {/* Section Renderer */}
-      <div className="mt-44 w-full flex justify-center flex-col">
-        <div className="flex flex-col justify-center text-center">
-          <h1 className="text-center text-3xl font-bold">Starships Store</h1>
-          <p className="text-gray-400">Adquira já sua nave da franquia de StarWars</p>
-        </div>
-        <div className="mt-10 flex flex-col sm:flex-row justify-end gap-4 p-4 items-center">
+      <div className="mt-2 w-full flex justify-center flex-col">
+        <div className="flex flex-col sm:flex-row justify-between items-center z-10 mt-4 p-4">
+          {/* Legenda Starships */}
+          <div className="text-left">
+            <h1 className="text-3xl font-bold">Starships Store</h1>
+            <p className="text-gray-400">Adquira já sua nave da franquia de StarWars</p>
+          </div>
+
           {/* Filtros */}
-          <PriceFilter minPrice={minPrice} maxPrice={maxPrice} setMinPrice={setMinPrice} setMaxPrice={setMaxPrice} />
-          <NameFilter nameFilter={nameFilter} setNameFilter={setNameFilter} />
-          <div className="mt-3">
-          <ResetButton resetFilters={resetFilters} />
+          <div className=" sm:mt-0 flex gap-4 items-center">
+            <PriceFilter minPrice={minPrice} maxPrice={maxPrice} setMinPrice={setMinPrice} setMaxPrice={setMaxPrice} />
+            <NameFilter nameFilter={nameFilter} setNameFilter={setNameFilter} />
+            <div className="mb-4 sm:mt-0">
+              <ResetButton resetFilters={resetFilters} />
+            </div>
           </div>
         </div>
-        <div className="">
+
+        <div className="relative z-10 mt-1">
           <SectionRenderer minPrice={minPrice} maxPrice={maxPrice} nameFilter={nameFilter} />
         </div>
       </div>

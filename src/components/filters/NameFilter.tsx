@@ -44,15 +44,13 @@ const NameFilter: React.FC<NameFilterProps> = ({ nameFilter, setNameFilter }) =>
 
   return (
     <div className="relative mb-4">
-      <label htmlFor="nameFilter" className="block text-sm font-semibold mb-2">
-        Filter by Name
-      </label>
       <input
         type="text"
         id="nameFilter"
         value={nameFilter}
         onChange={handleInputChange}
-        className="w-full p-2 bg-gray-700 text-white rounded-lg"
+        placeholder="Filter by Name" // Placeholder como label dentro do campo de input
+        className="w-full bg-indigo-950 p-2 text-white hover:text-white border-solid border-2 border-indigo-500 rounded-xl hover:bg-indigo-900 transition-colors"
       />
       {loading && <p className="text-white mt-2">Loading...</p>}
       {/* Exibindo as sugestões de autocomplete */}
