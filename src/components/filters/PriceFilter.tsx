@@ -8,11 +8,6 @@ interface PriceFilterProps {
 }
 
 const PriceFilter: React.FC<PriceFilterProps> = ({ minPrice, maxPrice, setMinPrice, setMaxPrice }) => {
-  const handleIncrementMin = () => setMinPrice(minPrice + 1000);
-  const handleDecrementMin = () => setMinPrice(minPrice - 1000);
-
-  const handleIncrementMax = () => setMaxPrice(maxPrice + 1000);
-  const handleDecrementMax = () => setMaxPrice(maxPrice - 1000);
 
   return (
     <div className="mb-4 flex gap-4">

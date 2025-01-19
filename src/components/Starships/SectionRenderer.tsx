@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchCharacters } from "@/utils/fetchStarWarsData";
+import Pagination from "@/components/Starships/Pagination";
 
 interface Starship {
   name: string;
@@ -15,9 +16,12 @@ interface SectionRendererProps {
   nameFilter: string;
 }
 
+const ITEMS_PER_PAGE = 8;
+
 const SectionRenderer: React.FC<SectionRendererProps> = ({ minPrice, maxPrice, nameFilter }) => {
   const [starships, setStarships] = useState<Starship[]>([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     setLoading(true);
@@ -41,36 +45,52 @@ const SectionRenderer: React.FC<SectionRendererProps> = ({ minPrice, maxPrice, n
     );
   });
 
+  // Paginação
+  const totalItems = filteredStarships.length;
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const currentStarships = filteredStarships.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 p-4">
-      {loading ? (
-        <p className="text-center text-gray-500">Loading...</p>
-      ) : (
-        filteredStarships.map((starship, index) => (
-          <div
-            key={index}
-            className="bg-gray-800 text-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-          >
-            {starship.image && (
-              <img
-                src={starship.image}
-                alt={starship.name}
-                className="h-16 object-cover rounded-t-lg mb-4"
-              />
-            )}
-            <h3 className="text-lg font-bold mb-2 text-indigo-500">{starship.name}</h3>
-            <p className="mb-1">
-              <span className="font-semibold">Model:</span> {starship.model}
-            </p>
-            <p className="mb-1">
-              <span className="font-semibold">Manufacturer:</span> {starship.manufacturer}
-            </p>
-            <p>
-              <span className="font-semibold">Cost:</span> {starship.cost_in_credits} credits
-            </p>
-          </div>
-        ))
-      )}
+    <div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 p-4">
+        {loading ? (
+          <p className="text-center text-gray-500">Loading...</p>
+        ) : currentStarships.length > 0 ? (
+          currentStarships.map((starship, index) => (
+            <div
+              key={index}
+              className="bg-gray-800 text-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+            >
+              {starship.image && (
+                <img
+                  src={starship.image}
+                  alt={starship.name}
+                  className="h-16 object-cover rounded-t-lg mb-4"
+                />
+              )}
+              <h3 className="text-lg font-bold mb-2 text-indigo-500">{starship.name}</h3>
+              <p className="mb-1">
+                <span className="font-semibold">Model:</span> {starship.model}
+              </p>
+              <p className="mb-1">
+                <span className="font-semibold">Manufacturer:</span> {starship.manufacturer}
+              </p>
+              <p>
+                <span className="font-semibold">Cost:</span> {starship.cost_in_credits} credits
+              </p>
+            </div>
+          ))
+        ) : (
+          <p className="text-center text-gray-500">No results found</p>
+        )}
+      </div>
+      {/* Paginação */}
+      <Pagination
+        currentPage={currentPage}
+        totalItems={totalItems}
+        itemsPerPage={ITEMS_PER_PAGE}
+        onPageChange={setCurrentPage}
+      />
     </div>
   );
 };
