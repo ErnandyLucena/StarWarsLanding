@@ -85,11 +85,12 @@ const SectionRenderer: React.FC<SectionRendererProps> = ({ minPrice, maxPrice, n
               </p>
               <p className="mb-1 flex items-center">
                 <img src="images/manufacturing-icon.png" className="w-5 mr-2" alt="" />
-                <span className="font-semibold">Mfr.:</span> {truncateText(starship.manufacturer, 20)}
+                <span className="font-semibold">Mfr.:</span> <span className="text-gray-400 ml-2">{truncateText(starship.manufacturer, 20)}</span>
               </p>
               <p className="mb-1 flex items-center">
                 <img src="images/cost-icon.png" className="w-5 mr-2" alt="" />
-                <span className="font-semibold">Cost:</span> {starship.cost_in_credits} credits
+                <span className="font-semibold">Cost:</span> <span className="text-gray-400 ml-2 mr-2"> {starship.cost_in_credits} </span> 
+                <span className="text-indigo-500">credits</span>
               </p>
             </div>
           ))
@@ -104,12 +105,14 @@ const SectionRenderer: React.FC<SectionRendererProps> = ({ minPrice, maxPrice, n
       )}
 
       {/* Paginação */}
+      <div className="mb-5">
       <Pagination
         currentPage={currentPage}
         totalItems={totalItems}
         itemsPerPage={ITEMS_PER_PAGE}
         onPageChange={setCurrentPage}
       />
+      </div>
     </div>
   );
 };

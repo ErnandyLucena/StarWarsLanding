@@ -38,7 +38,7 @@ export default function Home() {
             </div>
             <div className="ml-8">
               <h1 className="text-2xl md:text-3xl font-bold text-white">Starships Store</h1>
-              <p className="text-gray-400 text-sm md:text-lg">Adquira já sua nave da franquia de StarWars</p>
+              <p className="text-gray-400 text-sm md:text-md">Adquira já sua nave da franquia de StarWars</p>
             </div>
           </div>
           {/* Filtros */}

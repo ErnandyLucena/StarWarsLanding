@@ -8,6 +8,18 @@ interface PriceFilterProps {
 }
 
 const PriceFilter: React.FC<PriceFilterProps> = ({ minPrice, maxPrice, setMinPrice, setMaxPrice }) => {
+  
+
+  // Função para validar valores
+  const validateValue = (value: string, setValue: (price: number) => void) => {
+    if (value === "") {
+      setValue(Infinity); 
+    } else if (Number(value) < 0) {
+      setValue(0); 
+    } else {
+      setValue(Number(value)); 
+    }
+  };
 
   return (
     <div className="mb-4 flex gap-4">
@@ -19,9 +31,9 @@ const PriceFilter: React.FC<PriceFilterProps> = ({ minPrice, maxPrice, setMinPri
         <input
           type="number"
           id="minPrice"
-          value={minPrice || ""} 
-          onChange={(e) => setMinPrice(Number(e.target.value))}
-          placeholder="Min Price (in credits)" 
+          value={minPrice === 0 ? "" : minPrice} // Permite o campo ficar vazio quando minPrice for 0
+          onChange={(e) => validateValue(e.target.value, setMinPrice)}
+          placeholder="Min Price (in credits)"
           className="w-full bg-indigo-950 p-2 text-white hover:text-white border-solid border-2 border-indigo-500 rounded-xl hover:bg-indigo-900 transition-colors"
         />
       </div>
@@ -34,9 +46,9 @@ const PriceFilter: React.FC<PriceFilterProps> = ({ minPrice, maxPrice, setMinPri
         <input
           type="number"
           id="maxPrice"
-          value={maxPrice || ""} 
-          onChange={(e) => setMaxPrice(Number(e.target.value))}
-          placeholder="Max Price (in credits)" 
+          value={maxPrice === 0 ? "" : maxPrice} // pra exibir o placeholder quando vazio
+          onChange={(e) => validateValue(e.target.value, setMaxPrice)}
+          placeholder="Max Price (in credits)"
           className="w-full bg-indigo-950 p-2 text-white hover:text-white border-solid border-2 border-indigo-500 rounded-xl hover:bg-indigo-900 transition-colors"
         />
       </div>
