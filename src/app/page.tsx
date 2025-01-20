@@ -7,9 +7,10 @@ import NameFilter from "@/components/filters/NameFilter";
 import ResetButton from "@/components/filters/ResetButton";
 
 export default function Home() {
-  const [minPrice, setMinPrice] = useState<number>(1);
+  const [minPrice, setMinPrice] = useState<number>(0);
   const [maxPrice, setMaxPrice] = useState<number>(Infinity);
   const [nameFilter, setNameFilter] = useState<string>("");
+
 
 
   const resetFilters = () => {
