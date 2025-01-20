@@ -1,5 +1,3 @@
-// src/utils/fetchStarWarsData.ts
-
 const API_BASE_URL = "https://swapi.dev/api";
 
 interface StarWarsCharacter {

@@ -19,9 +19,9 @@ const PriceFilter: React.FC<PriceFilterProps> = ({ minPrice, maxPrice, setMinPri
         <input
           type="number"
           id="minPrice"
-          value={minPrice || ""} // Remove leading zero by ensuring it's treated as a number
+          value={minPrice || ""} 
           onChange={(e) => setMinPrice(Number(e.target.value))}
-          placeholder="Min Price (in credits)" // Placeholder text as label inside input
+          placeholder="Min Price (in credits)" 
           className="w-full bg-indigo-950 p-2 text-white hover:text-white border-solid border-2 border-indigo-500 rounded-xl hover:bg-indigo-900 transition-colors"
         />
       </div>
@@ -34,9 +34,9 @@ const PriceFilter: React.FC<PriceFilterProps> = ({ minPrice, maxPrice, setMinPri
         <input
           type="number"
           id="maxPrice"
-          value={maxPrice || ""} // Remove leading zero by ensuring it's treated as a number
+          value={maxPrice || ""} 
           onChange={(e) => setMaxPrice(Number(e.target.value))}
-          placeholder="Max Price (in credits)" // Placeholder text as label inside input
+          placeholder="Max Price (in credits)" 
           className="w-full bg-indigo-950 p-2 text-white hover:text-white border-solid border-2 border-indigo-500 rounded-xl hover:bg-indigo-900 transition-colors"
         />
       </div>

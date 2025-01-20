@@ -12,6 +12,9 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        primary: ["Montserrat", "sans-serif"], // Definindo Montserrat como fonte primária
+      },
     },
   },
   plugins: [],
