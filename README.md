@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# STARWARS STORE
 
-## Getting Started
+- **Descrição do projeto**: Desenvolvi esse simples projeto, uma página única, com o intuito de listar as informações das Starships de maneira mais detalhada e intuitiva para o usuário.
 
-First, run the development server:
+Com os filtros, é permitido setar um valor mínimo e máximo para pesquisa, sendo possível selecionar um intervalo de valores que o usuário tenha interesse, e também pesquisar pelo nome da nave, com um autocomplete que sugere opções conforme a digitação do usuário.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+O projeto apresenta responsividade, se adequando a vários tamanhos de tela, e além disso, inclui paginação para uma navegação mais eficiente através das informações.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Usei **TailwindCSS** para esse projeto, a fim de ter uma produção mais rápida e eficiente em dispositivos móveis (mobile first).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Funcionalidades
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Listagem de Starships**: Exibe informações detalhadas sobre as naves do universo Star Wars, além do modal.
+- **Filtros dinâmicos**: Permite que o usuário defina um intervalo de preços (mínimo e máximo) para filtrar as naves.
+- **Autocomplete**: Sugere nomes de naves enquanto o usuário digita na barra de pesquisa.
+- **Paginação**: Exibe as naves em páginas, permitindo navegação eficiente por um grande número de resultados.
+- **Responsividade**: O layout se adapta automaticamente para diferentes tamanhos de tela, garantindo uma boa experiência tanto em desktops quanto em dispositivos móveis.
 
-## Learn More
+## Como Usar
 
-To learn more about Next.js, take a look at the following resources:
+### Instalação
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone este repositório em seu computador:
+    ```bash
+    git clone https://github.com/ErnandyLucena/StarWarsLanding
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Navegue até o diretório do projeto:
+    ```bash
+    cd StarWarsLanding
+    ```
 
-## Deploy on Vercel
+3. Instale as dependências:
+    ```bash
+    npm install
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Inicie o servidor de desenvolvimento:
+    ```bash
+    npm run dev
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+5. Abra o navegador e acesse [http://localhost:3000] ou pelo link do deploy para visualizar o projeto.
+
+
