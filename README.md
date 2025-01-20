@@ -40,6 +40,7 @@ Usei **TailwindCSS** para esse projeto, a fim de ter uma produção mais rápida
     npm run dev
     ```
 
-5. Abra o navegador e acesse [http://localhost:3000] ou pelo link do deploy para visualizar o projeto.
+5. Abra o navegador e acesse [http://localhost:3000] 
+link do deploy para visualizar o projeto. [https://star-wars-landing-ruby.vercel.app/] 
 
 
