@@ -16,8 +16,8 @@ const StarshipModal: React.FC<StarshipModalProps> = ({ starship, onClose }) => {
   if (!starship) return null; 
 
   return (
-    <div className="fixed inset-0 bg-gray-900 bg-opacity-80 flex justify-center items-center z-50">
-      <div className="bg-indigo-950 p-10 text-white rounded-lg max-w-lg w-full border-solid border-2 border-indigo-700 shadow-lg shadow-indigo-500/20 relative">
+    <div className="fixed inset-0 bg-gray-900 bg-opacity-80 flex justify-center items-center z-50 p-4 sm:p-8 md:p-12"> {/* Margem ao redor do modal */}
+      <div className="bg-indigo-950 p-6 text-white rounded-lg max-w-lg w-full border-solid border-2 border-indigo-700 shadow-lg shadow-indigo-500/20 relative">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-300 hover:text-gray-100 transition duration-200"
@@ -32,7 +32,7 @@ const StarshipModal: React.FC<StarshipModalProps> = ({ starship, onClose }) => {
           />
           <h3 className="text-2xl font-bold text-indigo-500">{starship.name}</h3>
         </div>
-        <p className="mb-2 flex items-center mt-8">
+        <p className=" flex items-center mt-12">
           <img src="images/starship-icon.png" className="w-5 mr-2" alt="Model Icon" />
           <span className="font-semibold">Model:</span>
           <span className="text-gray-400 ml-2">{starship.model}</span>
@@ -42,7 +42,7 @@ const StarshipModal: React.FC<StarshipModalProps> = ({ starship, onClose }) => {
           <span className="font-semibold">Manufacturer:</span>
           <span className="text-gray-400 ml-2">{starship.manufacturer}</span>
         </p>
-        <p className="mb-2 flex items-center">
+        <p className="mb-2 flex items-center mb-8">
           <img src="images/cost-icon.png" className="w-5 mr-2" alt="Cost Icon" />
           <span className="font-semibold">Cost:</span>
           <span className="text-gray-400 ml-2">{starship.cost_in_credits} credits</span>
